@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
 import { checkValidData } from "../utils/validate";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const LoginPage = () => {
 
@@ -21,6 +23,23 @@ const LoginPage = () => {
   const handleValidation = () => {
     const message = checkValidData(email.current.value,password.current.value)
     seterrorMessage(message)
+
+    if(message) return;
+
+// Sign In Logic
+
+    signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+  .then((userCredential) => {
+    // Signed in 
+    // const user = userCredential.user;
+    console.log("Logged In")
+  })
+  .catch((error) => {
+    // const errorCode = error.code;
+    // const errorMessage = error.message;
+    seterrorMessage("No Registered Account, Please create a account")
+  });
+    
   }
 
   return (
@@ -41,14 +60,14 @@ const LoginPage = () => {
                 ref={email}
                 type="text" 
                 placeholder="Email Address" 
-                className="p-4 my-4 w-full text-black bg-gray-700 rounded-md"
+                className="p-4 my-4 w-full bg-gray-700 rounded-md"
                 />
 
                 <input 
                 ref={password}
                 type="password" 
                 placeholder="Password" 
-                className="p-4 my-4 w-full text-black bg-gray-700 rounded-md"
+                className="p-4 my-4 w-full bg-gray-700 rounded-md"
                 />
 
                 <p className="text-red-500 text-lg">{errorMessage}</p>

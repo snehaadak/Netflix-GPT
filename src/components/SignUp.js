@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import Header from "./Header";
 import { useRef, useState } from "react";
 import { checkValidData } from "../utils/validate";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase";
+
 
 const SignUp = () =>{
 
@@ -14,6 +17,25 @@ const SignUp = () =>{
     const handleValidation = () => {
     const message = checkValidData(email.current.value,password.current.value,name.current.value)
     seterrorMessage(message)
+
+    if(message) return;
+
+
+// Creating User Logic //
+
+    createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
+    .then((userCredential) => {
+    // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+    })
+
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        seterrorMessage(errorCode + "-" + errorMessage)
+    }); 
+
   }
 
 
@@ -35,21 +57,21 @@ const SignUp = () =>{
                 type="text"
                 ref={name} 
                 placeholder="Enter Full Name" 
-                className="p-4 my-4 w-full text-black bg-gray-700 rounded-md"
+                className="p-4 my-4 w-full bg-gray-700 rounded-md"
                 />
 
                 <input 
                 ref={email}
                 type="text" 
                 placeholder="Email Address" 
-                className="p-4 my-4 w-full text-black bg-gray-700 rounded-md"
+                className="p-4 my-4 w-full bg-gray-700 rounded-md"
                 />
 
                 <input
                 ref={password} 
                 type="password" 
                 placeholder=" Set Password" 
-                className="p-4 my-4 w-full text-black bg-gray-700 rounded-md"
+                className="p-4 my-4 w-full bg-gray-700 rounded-md"
                 />
 
                 <p className="text-red-500 text-lg">{errorMessage}</p>

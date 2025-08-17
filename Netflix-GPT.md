@@ -17,3 +17,8 @@
 - Along with creating the pages. Setup the `routing` for those pages.
 - create the SignIn page using form.
 - Once you have a SignIn, SignUp form build the `form validation` using `useRef`
+- Setting up `Google Firebase` for backend
+    > Firebase Setup
+    > set `email and password` under authentication
+    > Deploy your app to production by hosting it on firebase
+- Building `authentication` using `Google Firebase`.
