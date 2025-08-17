@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Browse from "./Browse";
 import LoginPage from "./LoginPage";
 import { RouterProvider } from "react-router-dom";
-import SignUp from "./SignUp";
 
 const Body = () => {
 
@@ -15,10 +14,7 @@ const Body = () => {
             path:"/browse",
             element: <Browse/>
         },
-        {
-            path:"/newUser/SignUp",
-            element: <SignUp/>
-        }
+        
     ])
 
     return (
