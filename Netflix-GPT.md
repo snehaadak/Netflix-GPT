@@ -17,8 +17,12 @@
 - Along with creating the pages. Setup the `routing` for those pages.
 - create the SignIn page using form.
 - Once you have a SignIn, SignUp form build the `form validation` using `useRef`
-- Setting up `Google Firebase` for backend
+- Setting up `Google Firebase` for backend: install firebase, -g firebase-tools
     > Firebase Setup
     > set `email and password` under authentication
     > Deploy your app to production by hosting it on firebase
 - Building `authentication` using `Google Firebase`.
+- Setting up Redux Store: install @reduxjs/toolkit, react-redux
+    > Create a `Store`
+    > create a `slice`
+    > `Providing` store to our App
