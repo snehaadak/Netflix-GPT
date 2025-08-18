@@ -1,14 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Header from "./Header";
 import { useRef, useState } from "react";
 import { checkValidData } from "../utils/validate";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
-
+import { updateProfile } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const SignUp = () =>{
 
-    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [errorMessage, seterrorMessage] = useState(null);
   
@@ -28,8 +30,19 @@ const SignUp = () =>{
     createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
     .then((userCredential) => {
     // Signed in 
-        // const user = userCredential.user;
-        navigate("/browse");
+        const user = userCredential.user;
+        updateProfile(user, {
+            displayName: name.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
+        }).then(() => {   
+            const {uid,email, displayName} = auth.currentUser;                  // User is signed in, see docs for a list of available properties // https://firebase.google.com/docs/reference/js/auth.user
+                            dispatch(addUser({
+                                uid: uid, 
+                                email: email, 
+                                displayName: displayName})) 
+                                                
+        }).catch((error) => {
+            seterrorMessage(error.message)
+        });
         
     })
 
