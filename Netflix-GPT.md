@@ -41,3 +41,14 @@
     > use `createUserWithEmailAndPassword` on SignUp page to create the user account
     > use `updateProfile` with dispatch inside of above step so that the store is updated on every new user signup
     > use `signInWithEmailAndPassword` to Login for the existing users.
+
+- Start building `browse` page
+    > We will get our data from TMDB movie database and we can use there APIs
+    > create an account on TMDB movie data base -> Login -> Edit profile -> API section -> get access token
+
+- Get Data from TBDM
+    > go to Documentation  `developer.themoviedb.org` -> API Reference -> Movie Lists -> Now Playing -> Javascript
+    > add the options to our constants file and export it.
+    > do the fetch inside our browse file.
+
+- Update the Redux store creating a new slice for nowPlayingMovies
