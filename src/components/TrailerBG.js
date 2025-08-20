@@ -1,28 +1,18 @@
-import { useEffect } from "react";
-import { API_OPTIONS } from "../utils/constants"
+
+import { useSelector } from "react-redux";
+import useMovieTrailer from "../hooks/useMovieTrailer";
 
 const TrailerBG = ({movieId}) => {
 
-    const getMovieVideos = async () => {
-        const data = await fetch('https://api.themoviedb.org/3/movie/755898/videos?language=en-US', API_OPTIONS)
-        const json = await data.json();
-        console.log(json)
+    const bgVideo = useSelector((store)=> store.movies?.trailerVideo);
 
-
-        const filterData = json.results.filter((video)=>video.type === "Trailer")    
-        const trailer = filterData.length ? filterData[0] : json.results[0];                  // if it shows multiple trailers use the first one and handle the case where we dont have the trailer use the first video of the arrays
-        console.log(trailer)
-    }
-   
-    
-
-    useEffect(()=>{
-        getMovieVideos();
-    },[])
+    useMovieTrailer(movieId);
 
     return(
-        <div>
-            <h1>Trailer Box</h1>
+        <div className="w-full">
+            <iframe className="w-full aspect-video"
+            src={"https://www.youtube.com/embed/"+bgVideo?.key + "?&autoplay=1&mute=1&loop=1&playlist="+bgVideo?.key} 
+            title="YouTube video player"></iframe>
         </div>
     )
 }

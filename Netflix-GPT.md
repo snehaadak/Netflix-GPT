@@ -55,3 +55,11 @@
 
 - Working on UI of Browse
     > create two separate components for the browse page where one is used as main Container to display the trending's trailer and other is used to dispaly the rows of the movies
+
+- Main feature movie's trailer component
+    > We will use the first movie's trailer to show in the featured constainer
+    > get the Videos list for the frist movies Id, also keep the title, and overview 
+    > filter the list to get the actual trailer video
+    > save the video to our movies slice by creating and action and dispatch for it.
+    > render the UI using selector for that video on bg 
+    > use the title and over view of video on the overlay card to be dispalyed over our playing trailer bg
