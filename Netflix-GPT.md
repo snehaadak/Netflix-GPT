@@ -52,3 +52,6 @@
     > do the fetch inside our browse file.
 
 - Update the Redux store creating a new slice for nowPlayingMovies
+
+- Working on UI of Browse
+    > create two separate components for the browse page where one is used as main Container to display the trending's trailer and other is used to dispaly the rows of the movies
