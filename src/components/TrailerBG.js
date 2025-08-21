@@ -9,8 +9,8 @@ const TrailerBG = ({movieId}) => {
     useMovieTrailer(movieId);
 
     return(
-        <div className="w-full">
-            <iframe className="w-full aspect-video"
+        <div className="w-full h-screen overflow-hidden">
+            <iframe className="top-0 left-0 w-full h-full"
             src={"https://www.youtube.com/embed/"+bgVideo?.key + "?&autoplay=1&mute=1&loop=1&playlist="+bgVideo?.key} 
             title="YouTube video player"></iframe>
         </div>

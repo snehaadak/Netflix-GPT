@@ -63,3 +63,9 @@
     > save the video to our movies slice by creating and action and dispatch for it.
     > render the UI using selector for that video on bg 
     > use the title and over view of video on the overlay card to be dispalyed over our playing trailer bg
+
+- Secondary Movie List's Container.
+    > create the Movie's List component which is a single row of multiple movie cards component.
+    > create customised hooks for fetching the types of movie's List.
+    > we will use the individual set's APIs to fetch the data, then dispatch the data, actions accordingly to store that fetched data to store.
+    > render the MovieLists row via browse page.
