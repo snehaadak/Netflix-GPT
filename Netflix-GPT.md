@@ -69,3 +69,11 @@
     > create customised hooks for fetching the types of movie's List.
     > we will use the individual set's APIs to fetch the data, then dispatch the data, actions accordingly to store that fetched data to store.
     > render the MovieLists row via browse page.
+
+- GPT Search button.
+    > create a gpt search button inside of header.
+    > create a function to handle its toggle.
+    > create a slice to store the value of GPT page as true or false
+    > Inside of slice set the initial value of gpt page to false and action to do the not of initial state.
+    > dispatch the action accordingly onclick function
+    > and useselector in browse to fetxh the state and then render the UI accordingly.

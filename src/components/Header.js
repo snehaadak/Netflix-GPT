@@ -7,12 +7,18 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO, User_ICON } from "../utils/constants";
+import { toggleGPTSearchView } from "../utils/gptSlice";
 
 const Header = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector(store => store.user)
+
+  const  handleGPTSearchCLick = () => {
+    dispatch(toggleGPTSearchView());
+  }
+
 
     const handleSignOut = () => {
         signOut(auth).then(() => {
@@ -30,7 +36,7 @@ const Header = () => {
             } else {
                 dispatch(removeUser());
                 if (window.location.pathname === "/browse") {
-                  navigate("/");
+                  navigate("/") || navigate("/GPT/Search")
                 }              
               }
         });
@@ -48,13 +54,19 @@ const Header = () => {
       
       {user && (
         <div className="ml-auto font-semibold z-10 mt-2 mr-10 flex text-white">
-            <span className="mx-auto my-auto">
+            <span className="mx-auto my-auto mr-5 ">
+
               <p>{user?.displayName}</p>
             </span>
-            <img className="mr-2 w-11 h-11 rounded-sm"
+
+            <button className="p-2 mr-5 rounded-xl bg-gray-400"
+              onClick={handleGPTSearchCLick}>GPT Search</button>
+
+            <img className="mr-4 5-11 h-11 rounded-sm"
               src= {User_ICON}
               alt ="User Icon"></img>
-            <button className="ml-5"
+
+            <button className=""
               onClick={handleSignOut}>Sign Out</button>
             </div>)}
     </div>
