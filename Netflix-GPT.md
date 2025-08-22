@@ -77,3 +77,6 @@
     > Inside of slice set the initial value of gpt page to false and action to do the not of initial state.
     > dispatch the action accordingly onclick function
     > and useselector in browse to fetxh the state and then render the UI accordingly.
+
+- GPT Search Page
+    - Create 2 components one for the search bar and other for the search suggested movies.

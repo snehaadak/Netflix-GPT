@@ -3,7 +3,6 @@ import Browse from "./Browse";
 import LoginPage from "./LoginPage";
 import { RouterProvider} from "react-router-dom";
 import SignUp from "./SignUp";
-import GPTSearch from "./GPTSearch";
 
 
 const Body = () => {
@@ -22,10 +21,6 @@ const Body = () => {
         {
             path: "/newUser/SignUp",
             element: <SignUp/>
-        },
-        {
-            path: "/GPT/Search",
-            element: <GPTSearch/>
         }
         
     ])
