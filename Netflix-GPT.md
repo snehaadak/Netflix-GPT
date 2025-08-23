@@ -80,3 +80,19 @@
 
 - GPT Search Page
     - Create 2 components one for the search bar and other for the search suggested movies.
+
+- Adding in Language Change Feature
+    > create a Langugae constants file that has our button and search bar in different languages.
+    > in our general constants add the identifier which can be used as key for dyanamic changes and name to be displayed.
+    > create a config slice and add action to handle the change language function.
+    > dispatch the action `onChange` for select tag
+    > use selector to fetch the language changes in the GPTSearchBar.
+
+- Registering for GPT API via Open.ai Platform
+    > browse to platform.openai.com -> login with you chatGPT account
+    > go to API section -> create new secret key
+    > Create a secret key and copy the key generated and paste in our constants file and export from there. 
+
+- Install npm OpenAI package. It is the helper functions that are used to make the API calls directly.
+
+- Create a separete js file to save the open AI generic function copy it from the boiler plate of NPM OpenAI

@@ -17,3 +17,5 @@ export const SUPPORTED_LANGUAGES = [{identifier : "english", name: "English"},
                                     {identifier : "spanish", name: "Spanish"},
                                     {identifier : "japanese", name: "Japanese"}
                                   ]
+
+export const OPENAI_KEY = "PASTE YOUR API KEY HERE"
