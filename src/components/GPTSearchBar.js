@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import lang from "../utils/languageConstants";
 import { useRef } from "react";
-import openai from "../utils/openAI";
 
 
 const GPTSearchBar = () => {
@@ -11,13 +10,7 @@ const GPTSearchBar = () => {
     const searchText = useRef(null);
 
     const handleGPTSearchClick = async () => {
-        console.log(searchText.current.value)
-
-        const gptResults = await openai.chat.completions.create({
-            messages: [{ role: 'user', content: 'Are semicolons optional in JavaScript?' }],
-            model: 'gpt-4o'
-        });         
-        console.log(gptResults.choices);
+        console.log(searchText.current.value)         
     }
 
     return (

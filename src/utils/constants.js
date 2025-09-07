@@ -18,4 +18,3 @@ export const SUPPORTED_LANGUAGES = [{identifier : "english", name: "English"},
                                     {identifier : "japanese", name: "Japanese"}
                                   ]
 
-export const OPENAI_KEY = process.env.REACT_APP_OPENAI_API_KEY
